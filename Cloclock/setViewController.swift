@@ -1,11 +1,6 @@
 
 
 import UIKit
-protocol setDelegate{
-    func repeatSure(index:Int,judge:Bool)
-    func labelSure(label:String)
-    func musicSure(music:String)
-}
 class setViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var text: UITextField!

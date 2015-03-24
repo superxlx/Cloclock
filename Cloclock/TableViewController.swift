@@ -1,14 +1,7 @@
-//
-//  TableViewController.swift
-//  FunnyC
-//
-//  Created by xlx on 15/2/6.
-//  Copyright (c) 2015年 xlx. All rights reserved.
-//
 
 import UIKit
 import CoreData
-class TableViewController: UITableViewController,timeDelegate {
+class TableViewController: UITableViewController,timeDelegate,tablereloddelegate{
 
     var time:String!
     var hour:Int!
@@ -26,10 +19,17 @@ class TableViewController: UITableViewController,timeDelegate {
         tableview.backgroundColor=UIColor.yellowColor()
         
         navigationController?.navigationBar.backgroundColor=UIColor.blueColor()
+        
+        var appdetegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appdetegate.delegate=self
+        
 
     }
+    func reload() {
+        self.tableview.reloadData()
+    }
     func timesure(){
-//        var addtime=Time()
+
         var entity=NSFetchRequest(entityName: "Time")
         self.context=(UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         self.contextdetial=context!.executeFetchRequest(entity, error: nil)!
@@ -39,7 +39,7 @@ class TableViewController: UITableViewController,timeDelegate {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let segueStr = "\(segue.identifier!)"
@@ -95,13 +95,15 @@ class TableViewController: UITableViewController,timeDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         println("删除\(indexPath.row)")
    
-        
-//       //取消推送
-//        let local=UIApplication.sharedApplication()
-//        let cancelnotification=local.scheduledLocalNotifications[indexPath.row] as UILocalNotification
-//        local.cancelLocalNotification(cancelnotification)
-//    
-//        
+        let con=contextdetial[indexPath.row] as Cloclock
+        if con.on as Bool {
+            //修改数据
+            con.on=false
+            self.context.save(nil)
+            //取消推送
+            cancellocalnotification(indexPath.row)
+        }
+
         
         self.context=(UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
         context.deleteObject(self.contextdetial[indexPath.row] as NSManagedObject)
@@ -124,45 +126,7 @@ class TableViewController: UITableViewController,timeDelegate {
         let cell=swit.superview?.superview as UITableViewCell
         let row=tableview.indexPathForCell(cell)!.row
         var con=contextdetial[row] as Cloclock
-//        NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
-//        4     NSEntityDescription * entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-//        5     [fetchRequest setEntity:entity];
-//        6
-//        7     NSError * requestError = nil;
-//        8     NSArray * persons = [self.managedObjectContext executeFetchRequest:fetchRequest error:&requestError];
-//        9
-//        10     if ([persons count] > 0) {
-//            11
-//            12         Person * lastPerson = [persons lastObject];
-//            13         // 更新数据
-//            14         lastPerson.firstName = @"Hour";
-//            15         lastPerson.lastName = @"Zero";
-//            16         lastPerson.age = @21;
-//            17
-//            18         NSError * savingError = nil;
-//            19         if ([self.managedObjectContext save:&savingError]) {
-//                20             NSLog(@"successfully saved the context");
-//                21
-//                22         }else {
-//                23             NSLog(@"failed to save the context error = %@", savingError);
-//                24         }
-//            25 
-//            26 
-//            27     }else {
-//            28         NSLog(@"could not find any person entity in the context");
-//            29     }
-        
-        
-//        NSArray *result = [context executeFetchRequest:request error:&error];//这里获取到的是一个数组，你需要取出你要更新的那个obj
-//        for (News *info in result) {
-//            info.islook = islook;
-//        }
-//        
-//        //保存
-//        if ([context save:&error]) {
-//            //更新成功
-//            NSLog(@"更新成功");
-//        }
+
         if swit.on {
              //修改数据
              con.on=true
@@ -180,11 +144,24 @@ class TableViewController: UITableViewController,timeDelegate {
             con.on=false
             self.context.save(nil)
             //取消推送
-            let local=UIApplication.sharedApplication()
-            let cancelnotification=local.scheduledLocalNotifications[row] as UILocalNotification
-            local.cancelLocalNotification(cancelnotification)
+            cancellocalnotification(row)
 
         }
+    }
+    //取消推送
+    func  cancellocalnotification(row:Int){
+        var mark=0
+        for i in 0...row {
+            var con=contextdetial[i] as Cloclock
+            if con.on as Bool {
+                mark++
+            }
+        }
+        
+        let local=UIApplication.sharedApplication()
+        let cancelnotification=local.scheduledLocalNotifications[mark] as UILocalNotification
+        local.cancelLocalNotification(cancelnotification)
+    
     }
   
 }

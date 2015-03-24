@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A15C1F51ABB2C1F000983D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A15C1F41ABB2C1F000983D4 /* Main.storyboard */; };
+		2A514D391AC1570700B504A4 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A514D381AC1570700B504A4 /* protocol.swift */; };
 		2A52CC0A1ABF10B9002A3C4E /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2A52CC091ABF10B9002A3C4E /* 1.wav */; };
 		2A63E45D1AB59E1F0024BA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63E45C1AB59E1F0024BA10 /* AppDelegate.swift */; };
 		2A63E4601AB59E1F0024BA10 /* Cloclock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A63E45E1AB59E1F0024BA10 /* Cloclock.xcdatamodeld */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		2A15C1F41ABB2C1F000983D4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2A514D381AC1570700B504A4 /* protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		2A52CC091ABF10B9002A3C4E /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
 		2A63E4571AB59E1F0024BA10 /* Cloclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A63E45B1AB59E1F0024BA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,11 +95,12 @@
 				2A63E4811AB59E7A0024BA10 /* TableViewController.swift */,
 				2A63E4821AB59E7A0024BA10 /* addViewController.swift */,
 				2A63E4831AB59E7A0024BA10 /* setViewController.swift */,
+				2A514D381AC1570700B504A4 /* protocol.swift */,
+				2A66FFB71ABFE5DE00938B37 /* Cloclock.swift */,
 				2A15C1F41ABB2C1F000983D4 /* Main.storyboard */,
 				2A63E4661AB59E1F0024BA10 /* Images.xcassets */,
 				2A63E4681AB59E1F0024BA10 /* LaunchScreen.xib */,
 				2A63E45E1AB59E1F0024BA10 /* Cloclock.xcdatamodeld */,
-				2A66FFB71ABFE5DE00938B37 /* Cloclock.swift */,
 				2A63E45A1AB59E1F0024BA10 /* Supporting Files */,
 				2A66FFAF1ABFE31500938B37 /* Cloclock-Bridging-Header.h */,
 			);
@@ -242,6 +245,7 @@
 				2A66FFB81ABFE5DE00938B37 /* Cloclock.swift in Sources */,
 				2A63E4601AB59E1F0024BA10 /* Cloclock.xcdatamodeld in Sources */,
 				2A63E4861AB59E7A0024BA10 /* setViewController.swift in Sources */,
+				2A514D391AC1570700B504A4 /* protocol.swift in Sources */,
 				2A63E4851AB59E7A0024BA10 /* addViewController.swift in Sources */,
 				2A63E4841AB59E7A0024BA10 /* TableViewController.swift in Sources */,
 			);

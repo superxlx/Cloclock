@@ -1,6 +1,4 @@
-protocol timeDelegate{
-    func timesure()
-}
+
 import UIKit
 import CoreData
 class addViewController:UIViewController,setDelegate{
