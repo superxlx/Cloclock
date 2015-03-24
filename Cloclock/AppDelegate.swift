@@ -24,11 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var time=NSDate()
         println(time)
         println("I have receive information")
+        
+        
+        
         var entity=NSFetchRequest(entityName: "Time")
         var context=(UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         var contextdetial=context!.executeFetchRequest(entity, error: nil)!
-        var con = contextdetial.first as Cloclock
-        con.on=false
+        var cont:Cloclock!
+        for con in contextdetial {
+            if (con as Cloclock).on as Bool {
+                cont=con as Cloclock
+                break
+            }
+        }
+        cont.on=false
         context?.save(nil)
         delegate.reload()
     }
