@@ -16,7 +16,7 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
         self.context=(UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         self.contextdetial=context!.executeFetchRequest(entity, error: nil)!
         
-        tableview.backgroundColor=UIColor.yellowColor()
+        
         
         navigationController?.navigationBar.backgroundColor=UIColor.blueColor()
         
@@ -40,6 +40,9 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "闹钟"
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let segueStr = "\(segue.identifier!)"
@@ -77,7 +80,14 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
         self.hour=dateFormat.stringFromDate(date!).toInt()
       
         let on=contextdetial[indexPath.row].valueForKey("on") as? Bool
-        swit.on=on! as Bool
+        if on! {
+            swit.on=on!
+        }else{
+            swit.on=on!
+            
+            println("0")
+        }
+        
         
         label.text=contextdetial[indexPath.row].valueForKey("label") as?  String
         if self.hour>=12{

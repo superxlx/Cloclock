@@ -9,16 +9,16 @@
         <scene sceneID="kf4-u3-D4U">
             <objects>
                 <tableViewController id="eAm-Hf-gp1" customClass="TableViewController" customModule="Cloclock" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="5YY-dR-rMD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="85" sectionHeaderHeight="10" sectionFooterHeight="10" id="5YY-dR-rMD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.53212469790000005" green="1" blue="0.2379177432" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" red="0.53212469790000005" green="1" blue="0.2379177432" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.35486033930858457" green="0.98087489604949951" blue="0.43033456236740025" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.35486033929999999" green="0.980874896" blue="0.43033456240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="72" id="fS3-K3-KCg">
+                            <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="85" id="fS3-K3-KCg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fS3-K3-KCg" id="zQI-eV-NYf">
@@ -56,7 +56,7 @@
                                         <constraint firstAttribute="centerY" secondItem="SUe-Xd-v9S" secondAttribute="centerY" id="dF7-cM-i1d"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.53212469786362748" green="1" blue="0.23791774322186876" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.82612569816343751" green="1" blue="0.57216543056923208" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
