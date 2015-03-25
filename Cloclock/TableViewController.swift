@@ -16,13 +16,22 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
         self.context=(UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         self.contextdetial=context!.executeFetchRequest(entity, error: nil)!
         
-        
-        
-        navigationController?.navigationBar.backgroundColor=UIColor.blueColor()
-        
+       
+        var title=UILabel(frame: CGRectMake(0, 0, 100, 100))
+        title.textAlignment=NSTextAlignment.Center
+        title.font=UIFont(name: "Zapfino", size: 20)
+        title.center.x=self.view.center.x
+        title.text="闹钟"
+        title.textColor=UIColor.greenColor()
+        self.navigationItem.titleView=title
+        self.navigationController?.navigationBar.backgroundColor=UIColor.greenColor()
+        //UIColor(red: 220/255, green: 255/255, blue: 220/255, alpha: 1)
         var appdetegate = UIApplication.sharedApplication().delegate as AppDelegate
         appdetegate.delegate=self
         
+        
+        
+        tableview.backgroundColor=UIColor(red: 235/255, green: 251/255, blue: 215/255, alpha: 1)
 
     }
     func reload() {
@@ -40,9 +49,6 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-    }
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "闹钟"
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let segueStr = "\(segue.identifier!)"
@@ -84,8 +90,6 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
             swit.on=on!
         }else{
             swit.on=on!
-            
-            println("0")
         }
         
         
