@@ -30,8 +30,12 @@ class TableViewController: UITableViewController,timeDelegate,tablereloddelegate
         appdetegate.delegate=self
         
         
-        
+        tableview.separatorStyle=UITableViewCellSeparatorStyle.None
         tableview.backgroundColor=UIColor(red: 235/255, green: 251/255, blue: 215/255, alpha: 1)
+        var a=UIImageView(frame: self.view.frame)
+        a.image=UIImage(named: "green.png")
+        
+        tableview.backgroundView=a
 
     }
     func reload() {
